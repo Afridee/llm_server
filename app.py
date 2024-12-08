@@ -7,6 +7,7 @@ from PIL import Image
 import os
 import joblib
 
+
 # Load the best classification model and objects:
 best_model = joblib.load("random_forest_model.pkl")
 tfidf_vectorizer = joblib.load("tfidf_vectorizer.pkl")
