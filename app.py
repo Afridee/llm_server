@@ -93,3 +93,8 @@ def predict_category(query: Query):
 #Then build and run the Docker container:
 #docker build -t flan-t5-api .
 #docker run -p 8000:8000 flan-t5-api
+
+#Git commands:
+#git add .  
+#git commit -m "currently contains 3 apis"
+#git push origin main 
