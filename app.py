@@ -15,6 +15,7 @@ label_encoder = joblib.load("label_encoder.pkl")
 # Initialize FastAPI app
 app = FastAPI()
 
+
 # Load the fine-tuned BLIP model and processor
 model_path = "./blip_finetuned"
 model = BlipForConditionalGeneration.from_pretrained(model_path)
