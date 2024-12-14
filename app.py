@@ -26,8 +26,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Load Flan-t5 model and tokenizer
-model2 = T5ForConditionalGeneration.from_pretrained('./checkpoint-2000-forServer')
-tokenizer = T5Tokenizer.from_pretrained('./checkpoint-2000-forServer')
+model2 = T5ForConditionalGeneration.from_pretrained('./checkpoint-37000-forServer')
+tokenizer = T5Tokenizer.from_pretrained('./checkpoint-37000-forServer')
 
 # Define a Pydantic model for request validation
 class PromptRequest(BaseModel):
@@ -42,7 +42,7 @@ async def generate_text(request: PromptRequest):
     # Access the 'prompt' from the request body
     prompt = request.prompt
     inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True)
-    output_sequences = model2.generate(input_ids=inputs["input_ids"], max_length=100)
+    output_sequences = model2.generate(input_ids=inputs["input_ids"], max_length=512, num_beams=5, no_repeat_ngram_size=3 )
     generated_text = tokenizer.decode(output_sequences[0], skip_special_tokens=True)
     return {"generated_text": generated_text}
 
