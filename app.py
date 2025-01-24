@@ -6,6 +6,10 @@ import torch
 from PIL import Image
 import os
 import joblib
+import uvicorn
+
+if __name__ == "__main__":
+    uvicorn.run("app:app", host="0.0.0.0", port=8000)
 
 
 # Load the best classification model and objects:
