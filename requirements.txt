@@ -1,5 +1,5 @@
-fastapi 
-uvicorn 
-transformers 
-torch
-sentencepiece
+fastapi==0.115.6
+pydantic==2.10.5
+numpy==1.26.4
+sentencepiece==0.2.0
+uvicorn==0.32.0
